@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/claramarsango/202301-w2ch3-clara-marsango#readme",
   "devDependencies": {
-    "husky": "^8.0.0"
+    "@babel/plugin-transform-modules-commonjs": "^7.20.11",
+    "husky": "^8.0.0",
+    "jest": "^29.4.0"
   }
 }
