@@ -27,195 +27,184 @@ let lineThreeMatched = false;
 let stillPlaying = true;
 let calledBingo = false;
 
-
 const greeting = () => {
-    let userName = prompt("¡Bienvenid@ al Bingo! Por favor, introduce tu nombre para comenzar.");
-        while (userName === null || userName === "") {
-            userName = prompt("¡Vaya! Ese nombre no es válido. Por favor, inténtalo de nuevo.");
-        }
-        return alert(`¡Hola ${userName}! Comienza el juego.`);
+  let userName = prompt(
+    "¡Bienvenid@ al Bingo! Por favor, introduce tu nombre para comenzar."
+  );
+  while (userName === null || userName === "") {
+    userName = prompt(
+      "¡Vaya! Ese nombre no es válido. Por favor, inténtalo de nuevo."
+    );
+  }
+  return alert(`¡Hola ${userName}! Comienza el juego.`);
 };
 
-
 const randomCartonNumber = () => {
-    let randomNumber = Math.ceil(Math.random() * 99);
-    
-    while(usedCartonNumbers.includes(randomNumber)) {
-        randomNumber = Math.ceil(Math.random() * 99);
-    }
+  let randomNumber = Math.ceil(Math.random() * 99);
 
-    usedCartonNumbers.push(randomNumber);
+  while (usedCartonNumbers.includes(randomNumber)) {
+    randomNumber = Math.ceil(Math.random() * 99);
+  }
 
-    return randomNumber;
-}
+  usedCartonNumbers.push(randomNumber);
+
+  return randomNumber;
+};
 
 const generateBingoCard = () => {
-
-    while(bingoCard.length < 15) {
-        const randomNumber = randomCartonNumber();
-        const bingoCardNumber = {number: randomNumber, matched: false};
-        bingoCard.push(bingoCardNumber);
-        
-    }
-    return bingoCard;
-}
+  while (bingoCard.length < 15) {
+    const randomNumber = randomCartonNumber();
+    const bingoCardNumber = { number: randomNumber, matched: false };
+    bingoCard.push(bingoCardNumber);
+  }
+  return bingoCard;
+};
 
 const sortBingoCardLines = () => {
-
-    bingoCard.forEach((element) => {
-        if (lineOne.length < 5) {
-            lineOne.push(element.number);
-        } else if (lineTwo.length < 5) {
-            lineTwo.push(element.number);
-        } else if (lineThree.length < 5) {
-            lineThree.push(element.number);
-        }
-    })
-}
+  bingoCard.forEach((element) => {
+    if (lineOne.length < 5) {
+      lineOne.push(element.number);
+    } else if (lineTwo.length < 5) {
+      lineTwo.push(element.number);
+    } else if (lineThree.length < 5) {
+      lineThree.push(element.number);
+    }
+  });
+};
 
 const showBingoCard = () => {
-
-    return (`
+  return `
     Este es tu cartón:
 
     Línea 1: ${lineOne.join(", ")}
     Línea 2: ${lineTwo.join(", ")}
     Línea 3: ${lineThree.join(", ")}
-    `)
-}
+    `;
+};
 
 const emptyLines = () => {
-
-    lineOne.length = 0;
-    lineTwo.length = 0;
-    lineThree.length = 0;
-
-}
+  lineOne.length = 0;
+  lineTwo.length = 0;
+  lineThree.length = 0;
+};
 
 const chooseBingoCard = () => {
+  let goodCarton;
 
-    let goodCarton;
-
-    do {
-        bingoCard.length = 0;
-        usedCartonNumbers.length = 0;
-        emptyLines();
-        generateBingoCard();
-        sortBingoCardLines();
-        goodCarton = confirm(`${showBingoCard()} \n¿Te gusta este cartón? Pulsa \"OK\" para continuar o \"Cancel\" para recibir uno nuevo`);
-    } while (goodCarton !== true)
-
-}
+  do {
+    bingoCard.length = 0;
+    usedCartonNumbers.length = 0;
+    emptyLines();
+    generateBingoCard();
+    sortBingoCardLines();
+    goodCarton = confirm(
+      `${showBingoCard()} \n¿Te gusta este cartón? Pulsa \"OK\" para continuar o \"Cancel\" para recibir uno nuevo`
+    );
+  } while (goodCarton !== true);
+};
 
 const randomNumberToCompare = () => {
-    let randomNumber = Math.ceil(Math.random() * 99);
-    
-    while(comparedNumbers.includes(randomNumber)) {
-        randomNumber = Math.ceil(Math.random() * 99);
-    }
+  let randomNumber = Math.ceil(Math.random() * 99);
 
-    comparedNumbers.push(randomNumber);
+  while (comparedNumbers.includes(randomNumber)) {
+    randomNumber = Math.ceil(Math.random() * 99);
+  }
 
-    return randomNumber;
-}
+  comparedNumbers.push(randomNumber);
+
+  return randomNumber;
+};
 
 let currentNumber = randomNumberToCompare();
 
 const showCurrentNumber = () => {
-
-    round++;
-    return alert(`Ronda: ${round} || Número: ${currentNumber}`);
-}
+  round++;
+  return alert(`Ronda: ${round} || Número: ${currentNumber}`);
+};
 
 const checkMatch = () => {
-
-    bingoCard.forEach((element) => {
-        if(currentNumber === element.number) {
-            element.number = "X";
-            element.matched = true;
-            emptyLines();
-            sortBingoCardLines();
-            alert(`¡Tienes el número ${currentNumber}!`);
-        }
-    })
-}
+  bingoCard.forEach((element) => {
+    if (currentNumber === element.number) {
+      element.number = "X";
+      element.matched = true;
+      emptyLines();
+      sortBingoCardLines();
+      alert(`¡Tienes el número ${currentNumber}!`);
+    }
+  });
+};
 
 const checkLine = () => {
+  const numberIsMatched = (number) => number === "X";
 
-    const numberIsMatched = (number) => number === "X";
-
-    if(lineOne.every(numberIsMatched) && !lineOneMatched) {
-        lineOneMatched = true;
-        alert("¡Has conseguido la 1ª línea!");
-    } else if (lineTwo.every(numberIsMatched) && !lineTwoMatched) {
-        lineTwoMatched = true;
-        alert("¡Has conseguido la 2ª línea!");
-    } else if (lineThree.every(numberIsMatched) && !lineThreeMatched){
-        lineThreeMatched = true;
-        alert("¡Has conseguido la 3ª línea!");
-    }
-}
+  if (lineOne.every(numberIsMatched) && !lineOneMatched) {
+    lineOneMatched = true;
+    alert("¡Has conseguido la 1ª línea!");
+  } else if (lineTwo.every(numberIsMatched) && !lineTwoMatched) {
+    lineTwoMatched = true;
+    alert("¡Has conseguido la 2ª línea!");
+  } else if (lineThree.every(numberIsMatched) && !lineThreeMatched) {
+    lineThreeMatched = true;
+    alert("¡Has conseguido la 3ª línea!");
+  }
+};
 
 const checkBingo = () => {
+  const numberIsMatched = (element) => element.number === "X";
 
-    const numberIsMatched = (element) => element.number === "X";
+  if (bingoCard.every(numberIsMatched)) {
+    calledBingo = true;
+    alert("¡¡¡Bingo!!!");
+  }
 
-    if(bingoCard.every(numberIsMatched)) {
-        calledBingo = true;
-        alert("¡¡¡Bingo!!!");
-    }
-
-    stillPlaying = false;
-}
-
+  stillPlaying = false;
+};
 
 const oneRound = () => {
+  let showNextNumber;
 
-    let showNextNumber;
+  do {
+    currentNumber = randomNumberToCompare();
 
-    do {
-        currentNumber = randomNumberToCompare();
+    showCurrentNumber();
+    checkMatch();
+    checkLine();
+    checkBingo();
 
-        showCurrentNumber();
-        checkMatch();
-        checkLine();
-        checkBingo();
+    showNextNumber = confirm(
+      `${showBingoCard()} \nPulsa \"OK\" para continuar y \"Cancel\" para salir del juego.`
+    );
+  } while (showNextNumber === true && calledBingo);
 
-        showNextNumber = confirm(`${showBingoCard()} \nPulsa \"OK\" para continuar y \"Cancel\" para salir del juego.`);
-    } while(showNextNumber === true && calledBingo === false);
-
-    if(showNextNumber === false) {
-        stillPlaying = false;
-        if(calledBingo === true) {
-            alert(`Has completado la partida en ${round} turnos. ¡Felicidades!`);
-        }
-        alert("¡Hasta luego! Gracias por jugar");
+  if (showNextNumber === false) {
+    stillPlaying = false;
+    if (calledBingo === true) {
+      alert(`Has completado la partida en ${round} turnos. ¡Felicidades!`);
     }
-}
-
+    alert("¡Hasta luego! Gracias por jugar");
+  }
+};
 
 const playAgain = () => {
+  let newGame;
 
-    let newGame;
+  if (stillPlaying === false) {
+    newGame = confirm('¿Quieres empezar otra partida? Pulsa "OK" o "Cancel"');
+  }
 
-    if(stillPlaying === false) {
-        newGame = confirm("¿Quieres empezar otra partida? Pulsa \"OK\" o \"Cancel\"");
-    }
+  if (newGame === true) {
+    round = 0;
+    comparedNumbers.length = 0;
 
-    if(newGame === true) {
-        round = 0;
-        comparedNumbers.length = 0;
-
-        playBingo();
-    }
-}
+    playBingo();
+  }
+};
 
 const playBingo = () => {
-    greeting();
-    chooseBingoCard();
-    oneRound();
-    playAgain();
-}
-
+  greeting();
+  chooseBingoCard();
+  oneRound();
+  playAgain();
+};
 
 playBingo();
