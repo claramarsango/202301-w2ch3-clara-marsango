@@ -1,0 +1,216 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(to right, rgb(100, 100, 229), rgb(174, 174, 198));
+    font-family: Nunito, sans-serif;
+    text-transform: uppercase;
+    margin: 3rem 7rem;
+    color: rgba(255, 255, 255, 0.817);
+}
+
+.title-container {
+    border: 15px ridge rgba(11, 30, 77, 0.819);
+    border-radius: 2rem;
+    margin-bottom: 2rem;
+    background-color: rgba(0, 4, 255, 0.28);
+    filter: brightness(1.3);
+}
+
+.title-container__title {
+    text-align: center;
+    letter-spacing: 1rem;
+    font-size: 3rem;
+    color: rgb(255, 255, 255);
+}
+
+.flex-container {
+    display: flex;
+}
+
+.display-none {
+    display: none;
+}
+
+.left-side {
+    width: 125rem;
+    margin-right: 1rem;
+}
+
+.right-side {
+    width: 130rem;
+    margin-left: 1rem;
+}
+
+.score-container, .timer-container {
+    margin: auto;
+    width: 10rem;
+    height: 7rem;
+}
+
+.score-container, .timer-container, .answer-container, .letters-container, .ranking-container {
+    margin-top: 1rem;
+    text-align: center;
+    border: 10px ridge rgba(11, 30, 77, 0.819);
+    border-radius: 2rem;
+    background-color: rgba(0, 4, 255, 0.164);
+    filter: brightness(1.3);
+}
+
+.score-container__title, .timer-container__title {
+    font-size: 1.3rem;
+    margin-top: 1rem;
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+.score-container__text, .timer-container__text {
+    margin-top: -1rem;
+    font-size: 1.3rem;
+}
+
+.answer-container {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    height: 30rem;
+    padding: 2rem 1rem 1rem;
+}
+
+.welcome-display__rules {
+    color: rgb(191, 191, 191);
+    font-size: 1rem;
+    margin-top: 2rem;
+}
+
+.player-name {
+    margin-top: 1rem;
+}
+
+.start-game-button {
+    margin: 0 auto;
+}
+
+.playing-display__title, .playing-display__description {
+    width: 100%;
+    margin: 0 auto;
+    color: rgba(255, 255, 255, 0.817);
+    text-align: center;
+    letter-spacing: 3px;
+}
+
+.playing-display__title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+.playing-display__description {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    margin-top: 1rem;
+    height: 7rem;
+    font-size: 1.2rem;
+    letter-spacing: 3px;
+}
+
+.input {
+    display: block;
+    width: 25rem;
+    height: 3rem;
+    text-align: center;
+    margin: 2rem auto;
+    padding-left: 1rem;
+    font-size: 1.2rem;
+    border: 5px solid rgba(177, 177, 177, 0.921);
+    border-radius: 2rem;
+}
+
+.button {
+    margin: 0rem 1rem 1rem;
+    width: 7rem;
+    height: 3rem;
+    border: 3px solid rgba(177, 177, 177, 0.921);
+    border-radius: 0.5rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    font-family: Nunito, sans-serif;
+    text-transform: uppercase;
+}
+
+.welcome-display__title, .end-display__title, .ranking-container__title {
+    text-align: center;
+    font-size: 2rem;
+    color: rgb(255, 255, 255);
+    margin: auto;
+}
+
+.end-display__score, .end-display__message {
+    font-size: 1.5rem;
+}
+
+.end-display__score {
+    margin-top: 3rem;
+}
+
+.end-display__message {
+    margin-bottom: 3rem;
+}
+
+.play-again-button {
+    width: 12rem;
+    height: 4rem;
+    font-size: 1rem;
+}
+
+.letters-container {
+    height: 30rem;
+    padding: 2rem 0;
+}
+
+.letters-container__letter {
+    display: inline-block;
+    width: 4rem;
+    height: 4rem;
+    border: 4px solid rgba(255, 255, 255, 0.431);
+    border-radius: 50%;
+    padding: 0.8rem;
+    margin: 0.6rem;
+    box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.317);
+    background-color: rgba(101, 101, 199, 0.668);
+    color: rgba(255, 255, 255, 0.692);
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+.correct {
+    background-color: rgba(13, 179, 13, 0.924);
+}
+
+.wrong {
+    background-color: rgba(216, 14, 14, 0.929);
+}
+
+.ranking-container {
+    margin-top: 3rem;
+}
+
+.ranking-container__title {
+    margin: 2rem auto;
+    text-decoration: underline;
+}
+
+.ol {
+    width: max-content;
+    margin: 0 auto;
+    font-size: 1.5rem;
+}
+
+.ol__players-list-item {
+    text-align: left;
+}

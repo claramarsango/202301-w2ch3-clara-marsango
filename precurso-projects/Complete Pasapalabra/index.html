@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&display=swap" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="styles.css">
+        <title>Pasapalabra complete - Clara Marsango</title>
+    </head>
+
+    <body>
+        <div>
+            <div class="title-container">
+                <h1 class="title-container__title">pasapalabra</h1>
+            </div>
+            <main>
+                <div class="flex-container">
+                    <div class="left-side">
+                        <div class="score-container">
+                            <p class="score-container__title">puntos</p>
+                            <p class="score-container__text">0</p>
+                        </div>
+                        <div class="answer-container">
+                            <div class="welcome-display">
+                                <h2 class="welcome-display__title">¡bienvenido al pasapalabra!</h2>
+                                <div class="welcome-display__rules">
+                                    <h4>tendrás 130 segundos para intentar adivinar la mayor cantidad de palabras posibles</h4>
+                                    <h4>por cada palabra acertada se sumará un punto a tu marcador</h4>
+                                    <h4>¡introduce tu nombre y estarás listo para empezar!</h4>
+                                </div>
+                                <form>
+                                    <input class="input player-name"/>
+                                    <button class="button start-game-button" disabled>empezar</button>
+                                </form>
+                            </div>
+                            <div class="playing-display display-none">
+                                <div class="playing-display__title"></div>
+                                <div class="playing-display__description"></div>
+                                <form>
+                                    <input class="input player-answer"/>
+                                    <button class="button skip-button">pasapalabra</button>
+                                    <button class="button submit-button">submit</button>
+                                    <br>
+                                    <button class="button end-game-button">salir</button>
+                                </form>
+                            </div>
+                            <div class="end-display display-none">
+                                <h2 class="end-display__title"></h2>
+                                <p class="end-display__score"></p>
+                                <p class="end-display__message">¿quieres jugar otra vez?</p>
+                                <button class="button play-again-button">nueva partida</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="right-side">
+                        <div class="timer-container">
+                            <p class="timer-container__title">tiempo</p>
+                            <p class="timer-container__text">10</p>
+                        </div>
+                        <div class="letters-container">
+                            <div class="letters-container__letter">a</div>
+                            <div class="letters-container__letter">b</div>
+                            <div class="letters-container__letter">c</div>
+                            <div class="letters-container__letter">d</div>
+                            <div class="letters-container__letter">e</div>
+                            <div class="letters-container__letter">f</div>
+                            <div class="letters-container__letter">g</div>
+                            <div class="letters-container__letter">h</div>
+                            <div class="letters-container__letter">i</div>
+                            <div class="letters-container__letter">j</div>
+                            <div class="letters-container__letter">k</div>
+                            <div class="letters-container__letter">l</div>
+                            <div class="letters-container__letter">m</div>
+                            <div class="letters-container__letter">n</div>
+                            <div class="letters-container__letter">ñ</div>
+                            <div class="letters-container__letter">o</div>
+                            <div class="letters-container__letter">p</div>
+                            <div class="letters-container__letter">q</div>
+                            <div class="letters-container__letter">r</div>
+                            <div class="letters-container__letter">s</div>
+                            <div class="letters-container__letter">t</div>
+                            <div class="letters-container__letter">u</div>
+                            <div class="letters-container__letter">v</div>
+                            <div class="letters-container__letter">w</div>
+                            <div class="letters-container__letter">x</div>
+                            <div class="letters-container__letter">y</div>
+                            <div class="letters-container__letter">z</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ranking-container">
+                    <h2 class="ranking-container__title">r a n k i n g</h2>
+                    <ol class="ol players-score-list"></ol> 
+                </div>
+            </main>
+        </div>
+
+
+
+        <script type="text/javascript" src="script.js"></script>
+    </body>
+</html>
